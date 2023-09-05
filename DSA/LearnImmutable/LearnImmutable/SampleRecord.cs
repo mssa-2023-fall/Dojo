@@ -4,5 +4,4 @@
     {
         public string? MutableProperty { get; set; }
     }
-    public record class SampleNameRecord(string FirstName, string LastName);
 }
