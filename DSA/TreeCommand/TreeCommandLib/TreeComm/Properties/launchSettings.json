@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TreeComm": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Source\\Repos\\LeetCode"
+    }
+  }
+}
