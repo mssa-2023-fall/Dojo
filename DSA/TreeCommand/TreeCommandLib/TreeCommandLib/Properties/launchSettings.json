@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TreeCommandLib": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Source\\Repos\\LeetCode"
+    }
+  }
+}
