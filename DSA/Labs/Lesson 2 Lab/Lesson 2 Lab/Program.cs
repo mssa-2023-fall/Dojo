@@ -28,35 +28,44 @@ Console.WriteLine("Scan your items\n" +
 
 do
 {
-    item = Console.ReadLine();
-    foreach (var i in inventory)
+    item = Console.ReadLine().ToLower();
+    if (item != "ch")
     {
-        if (i.Key.ToLower().StartsWith(item.ToLower()) && item.ToLower() != "ch" && item != "")
-        {
-            start:
-            Console.WriteLine("Quantity: [Enter a number]");
-            try
-            {
-               n = Convert.ToInt32(Console.ReadLine());
-            }
-            catch
-            {
-                goto start;
-            }
+        var selectedItem = inventory.Keys
+            .Select(x => new { InitChar = x[0].ToString().ToLower(), Key = x, Value = inventory[x] })
+            .Where(a => a.InitChar == item).FirstOrDefault() ;
 
-            // Add new Key, Value or change value of itemList SortedList
-            if (itemList.ContainsKey(i.Key))
+        //n = Convert.ToInt32(Console.ReadLine());
+        if (selectedItem != null)
+        {
+            Console.WriteLine("Quantity: [Enter a number]");
+            if (int.TryParse(Console.ReadLine(), out n))
             {
-                itemList[i.Key] += 1;
+                if (itemList.ContainsKey(selectedItem.Key))
+                {
+                    itemList[selectedItem.Key] += n;
+                }
+                else
+                {
+                    itemList.Add(selectedItem.Key, n);
+                }
             }
             else
             {
-                itemList.Add(i.Key, n);
+                Console.WriteLine("not a valid number");
+                continue;
             }
-            totalPrice += i.Value * n;
-            Console.WriteLine($"{i.Key} x {n} added.");
+            totalPrice += selectedItem.Value * n;
+            Console.WriteLine($"{selectedItem.Key} x {n} added.");
         }
+        else {
+            Console.WriteLine("Invalid item");
+            Console.WriteLine("Apple: a | Banana: b | Pear: p | Watermelon: w | Cherries: c | Checkout: ch");
+            continue;
+        }
+       
     }
+    
 }
 while (item.ToLower() != "ch");
 
