@@ -36,6 +36,18 @@ namespace BinarySearchTest
             //assert
             Assert.AreEqual(-1, BinarySearcher.Search(10, dataSet));
         }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),
+            "Input array is empty.")]
+        public void TestEmptyArrayThrowsException()
+        {
+            //arrange (missing 10 on purpose)
+            int[] dataSet = { };
+            int[] dataSet2 = new int[0];
+            //assert
+            Assert.AreEqual(-1, BinarySearcher.Search(10, dataSet));
+            Assert.AreEqual(-1, BinarySearcher.Search(10, dataSet2));
+        }
     }
 }
 
