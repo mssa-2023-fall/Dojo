@@ -1,3 +1,10 @@
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.Collections.Generic;
+using System.Globalization;
+using Parquet;
+using Parquet.Serialization;
+
 namespace LearnSystemIO
 {
     [TestClass]
@@ -202,7 +209,34 @@ namespace LearnSystemIO
 
             var sw = new StreamWriter(@"C:\test\oscar_age_male.csv");
             sw.WriteLine($"{"Actor", 20}");
-            foreach(var item in multi)
+        }
+        [TestMethod]
+        public void ParseCsvusingCsvHelperPackage()
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false,
+                BadDataFound = null,
+                Quote = '"',
+                Delimiter = ", ",
+            };
+            IEnumerable<Winner> records;
+            Winner w;
+            List<Winner> winners;
+            using (var reader = new StreamReader(@"c:\test\oscar_age_male.csv"))
+            using (var csv = new CsvReader(reader, config))
+            {
+                records = csv.GetRecords<Winner>();
+                w = records.ToList()[0];
+            }
+            //assert
+            Assert.AreEqual(1, w.Index);
+            Assert.AreEqual(1928, w.Year);
+            Assert.AreEqual(44, w.Age);
+            Assert.AreEqual("Emil Jannings", w.Name);
+            Assert.AreEqual("The Last Command, The Way of All Flesh", w.Movie);
+            // parquet -> nuget parquet.net
+            ParquetSerializer.SerializeAsync(winners, @"c:\test\winner.parquet", FileMode.OpenOrCreate);
         }
     }
 }
