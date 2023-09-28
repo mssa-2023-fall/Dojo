@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubnetCalc", "SubnetCalc\SubnetCalc.csproj", "{84BCFDB1-E9C8-415B-9532-E3D246A2628E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPIPAdressTest", "TCPIPAdressTest\TCPIPAdressTest.csproj", "{1AE70913-9E69-48CF-8F3C-D1CD38983D81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84BCFDB1-E9C8-415B-9532-E3D246A2628E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BCFDB1-E9C8-415B-9532-E3D246A2628E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BCFDB1-E9C8-415B-9532-E3D246A2628E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BCFDB1-E9C8-415B-9532-E3D246A2628E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AE70913-9E69-48CF-8F3C-D1CD38983D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE70913-9E69-48CF-8F3C-D1CD38983D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE70913-9E69-48CF-8F3C-D1CD38983D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE70913-9E69-48CF-8F3C-D1CD38983D81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B1D44CB-71DD-479E-B520-D80C9C17138C}
+	EndGlobalSection
+EndGlobal
